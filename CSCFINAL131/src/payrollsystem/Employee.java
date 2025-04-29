@@ -8,9 +8,10 @@ public class Employee {
     private float overtimeWorked;
     private float hourlyWage;
     private String password;
-    private float check; //if we remove check then use this instead
+    private float check;
+    private float tax;//if we remove check then use this instead
 
-    public Employee(String firstName, String lastName, int id, float hoursWorked, float overtimeWorked, float hourlyWage,String password, float check) {
+    public Employee(String firstName, String lastName, int id, float hoursWorked, float overtimeWorked, float hourlyWage,String password, float check, float tax) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.id = id;
@@ -19,6 +20,7 @@ public class Employee {
         this.hourlyWage = hourlyWage;
         this.password=password;
         this.check= check;    
+        this.tax= tax;
         }
 
     public String getFirstName() {
@@ -81,11 +83,17 @@ public class Employee {
     public float getCheck(){ 
     	return updateCheck();
     }
-
+    public float getTax() {
+    	return tax;
+    }
+    
+    
     public float calculatePay(float hours, float overHours, float wage) { //might move
     	check = (hours*wage) + ((wage*1.5f)*overHours);
+ 
     	
         return check; 
-    }
+        }    
+    
 
 }
