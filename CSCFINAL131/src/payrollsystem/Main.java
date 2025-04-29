@@ -17,6 +17,16 @@ public class Main {
 	    + " " + emp3.getHoursWorked() + " " + emp3.getOvertimeWorked()
 	    + " " + emp3.getHourlyWage() + " " + emp3.getPassword() + " " + emp3.getCheck());
 		
+		Employee emp4 = new Employee("Jumana", "Abdullah", 7000, 42f, 1f, 23f, "Jumana3!", 4f, 7f);
+		System.out.println(emp4.getId() + " " + emp4.getFirstName() + " " + emp4.getLastName()
+		+ " " + emp4.getHoursWorked() + " " + emp4.getOvertimeWorked()
+		+ " " + emp4.getHourlyWage() + " " + emp4.getPassword() + " " + emp4.getCheck());
+
+		Employee emp5 = new Employee("Christian", "Ishikawa", 8002, 44f, 6f, 33f, "Christian1!", 0f, 3f);
+		System.out.println(emp5.getId() + " " + emp5.getFirstName() + " " + emp5.getLastName()
+		+ " " + emp5.getHoursWorked() + " " + emp5.getOvertimeWorked()
+		+ " " + emp5.getHourlyWage() + " " + emp5.getPassword() + " " + emp5.getCheck());
+		
 	}
 
 }
