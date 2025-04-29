@@ -7,6 +7,7 @@ public class Employee {
     private float hoursWorked;
     private float overtimeWorked;
     private float hourlyWage;
+    private String password;
 
     public Employee(String firstName, String lastName, int id, float hoursWorked, float overtimeWorked, float hourlyWage) {
         this.firstName = firstName;
@@ -63,6 +64,13 @@ public class Employee {
 
     public void setHourlyWage(float hourlyWage) {
         this.hourlyWage = hourlyWage;
+    }
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password=password;
     }
 
     public float calculatePay() {
