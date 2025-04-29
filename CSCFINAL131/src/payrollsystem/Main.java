@@ -28,7 +28,10 @@ public class Main {
 		+ " " + emp4.getHoursWorked() + " " + emp4.getOvertimeWorked()
 		+ " " + emp4.getHourlyWage() + " " + emp4.getPassword() + " " + emp4.getCheck());
 
-		
+		Employee emp5 = new Employee("Christian", "Ishikawa", 8002, 44f, 6f, 33f, "Christian1!", 0f, 3f);
+		System.out.println(emp5.getId() + " " + emp5.getFirstName() + " " + emp5.getLastName()
+		+ " " + emp5.getHoursWorked() + " " + emp5.getOvertimeWorked()
+		+ " " + emp5.getHourlyWage() + " " + emp5.getPassword() + " " + emp5.getCheck());
 	}
 
 }
