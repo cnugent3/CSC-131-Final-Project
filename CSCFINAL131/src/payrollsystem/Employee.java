@@ -8,6 +8,7 @@ public class Employee {
     private float overtimeWorked;
     private float hourlyWage;
     private String password;
+    private float check; //if we remove check then use this instead
 
     public Employee(String firstName, String lastName, int id, float hoursWorked, float overtimeWorked, float hourlyWage) {
         this.firstName = firstName;
@@ -73,8 +74,10 @@ public class Employee {
         this.password=password;
     }
 
-    public float calculatePay() {
-        return 0; // Placeholder
+    public float calculatePay(float hours, float overHours, float wage) { //might move
+    	check = (hours*wage) + ((wage*1.5f)*overHours);
+    	
+        return check; 
     }
 
 }
