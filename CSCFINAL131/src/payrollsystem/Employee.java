@@ -10,14 +10,16 @@ public class Employee {
     private String password;
     private float check; //if we remove check then use this instead
 
-    public Employee(String firstName, String lastName, int id, float hoursWorked, float overtimeWorked, float hourlyWage) {
+    public Employee(String firstName, String lastName, int id, float hoursWorked, float overtimeWorked, float hourlyWage,String password, float check) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.id = id;
         this.hoursWorked = hoursWorked;
         this.overtimeWorked = overtimeWorked;
         this.hourlyWage = hourlyWage;
-    }
+        this.password=password;
+        this.check= check;    
+        }
 
     public String getFirstName() {
         return firstName;
@@ -72,6 +74,12 @@ public class Employee {
 
     public void setPassword(String password) {
         this.password=password;
+    }
+    public float updateCheck() {
+        return this.check = calculatePay(this.hoursWorked, this.overtimeWorked, this.hourlyWage);
+    }
+    public float getCheck(){ 
+    	return updateCheck();
     }
 
     public float calculatePay(float hours, float overHours, float wage) { //might move

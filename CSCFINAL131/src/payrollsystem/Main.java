@@ -2,14 +2,21 @@ package payrollsystem;
 
 public class Main {
 	public static void main(String[] args) {
-		Employee emp1 = new Employee("Colin", "Nugent", 7999, 30f, 0f, 17f);
+		Employee emp1 = new Employee("Colin", "Nugent", 7999, 30f, 0f, 17f, "Colin1!", 0f);
 		System.out.println(emp1.getFirstName());
 		
-		Employee emp2 = new Employee("Jimson", "Sou", 8000, 35f, 2f, 25f);
-		System.out.println(emp2.getFirstName());
+		System.out.println(emp1.getId() + " " + emp1.getFirstName() + " " + emp1.getLastName()
+	    + " " + emp1.getHoursWorked() + " " + emp1.getOvertimeWorked()
+	    + " " + emp1.getHourlyWage() + " " + emp1.getPassword() + " " + emp1.getCheck());
+		Employee emp2 = new Employee("Jimson", "Sou", 8000, 35f, 2f, 25f, "Jimson1!", 0f);
+		System.out.println(emp2.getId() + " " + emp2.getFirstName() + " " + emp2.getLastName()
+	    + " " + emp2.getHoursWorked() + " " + emp2.getOvertimeWorked()
+	    + " " + emp2.getHourlyWage() + " " + emp2.getPassword() + " " + emp2.getCheck());
 		
-		Employee emp3 = new Employee("Evan", "Zheng", 8001, 40f, 4f, 30f);
-		System.out.println(emp2.getFirstName());
+		Employee emp3 = new Employee("Evan", "Zheng", 8001, 40f, 4f, 30f, "Evan1!", 0f);
+		System.out.println(emp3.getId() + " " + emp3.getFirstName() + " " + emp3.getLastName()
+	    + " " + emp3.getHoursWorked() + " " + emp3.getOvertimeWorked()
+	    + " " + emp3.getHourlyWage() + " " + emp3.getPassword() + " " + emp3.getCheck());
 		
 	}
 
