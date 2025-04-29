@@ -6,7 +6,7 @@ public class Main {
 		
 		System.out.println(emp1.getId() + " " + emp1.getFirstName() + " " + emp1.getLastName()
 	    + " " + emp1.getHoursWorked() + " " + emp1.getOvertimeWorked()
-	    + " " + emp1.getHourlyWage() + " " + emp1.getPassword() + " " + emp1.getCheck());
+	    + " " + emp1.getHourlyWage() + " " + emp1.getPassword() + " " + emp1.getCheck()+ "");
 		Employee emp2 = new Employee("Jimson", "Sou", 8000, 35f, 2f, 25f, "Jimson1!", 3f, 0f);
 		System.out.println(emp2.getId() + " " + emp2.getFirstName() + " " + emp2.getLastName()
 	    + " " + emp2.getHoursWorked() + " " + emp2.getOvertimeWorked()

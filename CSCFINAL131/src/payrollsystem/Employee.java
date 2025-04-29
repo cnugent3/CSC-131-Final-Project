@@ -10,7 +10,7 @@ public class Employee {
     private String password;
     private float check;
     private float tax;
-    private float r;//added so change would be recognized in this file
+    private float n;//added so change would be recognized in this file
 
     public Employee(String firstName, String lastName, int id, float hoursWorked, float overtimeWorked, float hourlyWage,String password, float check, float tax) {
         this.firstName = firstName;
