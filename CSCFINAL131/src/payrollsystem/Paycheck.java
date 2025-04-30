@@ -25,7 +25,7 @@ public class Paycheck {
         this.checkAmount = checkAmount;
     }
 
-    public float calculateCheckAmount() { //same as calculate pay so maybe remove? or remove calculate pay and keep this function
+    public float calculateCheckAmount() {
         return 0; // Placeholder
     }
 }
