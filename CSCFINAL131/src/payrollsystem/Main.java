@@ -29,10 +29,10 @@ public class Main {
 		+ " " + emp5.getHoursWorked() + " " + emp5.getOvertimeWorked()
 		+ " " + emp5.getHourlyWage() + " " + emp5.getPassword() + " " + emp5.getCheck());
 
-		Employee emp5 = new Employee("Noor", "Eissa", 8004, 34f, 7f, 44f, "Noor1!", 0f, 0f);
-		System.out.println(emp5.getId() + " " + emp5.getFirstName() + " " + emp5.getLastName()
-		+ " " + emp5.getHoursWorked() + " " + emp5.getOvertimeWorked()
-		+ " " + emp5.getHourlyWage() + " " + emp5.getPassword() + " " + emp5.getCheck());
+		Employee emp6 = new Employee("Noor", "Eissa", 8004, 34f, 7f, 44f, "Noor1!", 0f, 0f);
+		System.out.println(emp6.getId() + " " + emp6.getFirstName() + " " + emp6.getLastName()
+		+ " " + emp6.getHoursWorked() + " " + emp6.getOvertimeWorked()
+		+ " " + emp6.getHourlyWage() + " " + emp6.getPassword() + " " + emp6.getCheck());
  		
  	}
 }
