@@ -33,6 +33,12 @@ public class Main {
 		System.out.println(emp6.getId() + " " + emp6.getFirstName() + " " + emp6.getLastName()
 		+ " " + emp6.getHoursWorked() + " " + emp6.getOvertimeWorked()
 		+ " " + emp6.getHourlyWage() + " " + emp6.getPassword() + " " + emp6.getCheck());
+
+		Employee emp7 = new Employee("Maitri", "Amin", 9000, 38f, 2f, 28f, "Maitri1!", 1f, 2f);
+        System.out.println(emp7.getId() + " " + emp7.getFirstName() + " " + emp7.getLastName()
+        + " " + emp7.getHoursWorked() + " " + emp7.getOvertimeWorked()
+        + " " + emp7.getHourlyWage() + " " + emp7.getPassword() + " " + emp7.getCheck());
+
  		
  	}
 }
