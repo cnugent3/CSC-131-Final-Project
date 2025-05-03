@@ -63,6 +63,10 @@ public class Main {
  					case 3: 
  						manager.editEmployeeHours();	// Make it so that menu goes back
  						break;
+ 					case 4:
+ 						System.out.println("Exiting...");
+ 						System.exit(0);
+ 						break;
  					default:
  						System.out.println("Invalid choice. Please try again.");
  				}
@@ -81,7 +85,8 @@ public class Main {
  						//function
  						break;
  					case 3: 
- 						//function or quit
+ 						System.out.println("Exiting...");
+ 						System.exit(0); 						
  						break;
  					default:
  						System.out.println("Invalid choice. Please try again.");
@@ -98,6 +103,7 @@ public class Main {
  		System.out.println("1. Calculate Pay ");
  		System.out.println("2. Enter Hours ");
  		System.out.println("3. xxxxxxxxxx ");
+ 		System.out.println("4. Terminate Run");
 
  	}
  	
