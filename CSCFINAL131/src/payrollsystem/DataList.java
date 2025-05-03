@@ -6,7 +6,7 @@ public class DataList {
 	private List<Employee> employees;  //NEED TO MAKE DYNAMIC
 	
 	public DataList() {
-		employees = new ArrayList<>();
+		employees = new ArrayList<>(); //need to change check value to something realistic
 		employees.add(new Employee("Colin", "Nugent", 7999, 30f, 0f, 17f, "Colin1!", 0f, true));
 		employees.add(new Employee("Jimson", "Sou", 8000, 35f, 2f, 25f, "Jimson1!", 3f, false));
 		employees.add(new Employee("Evan", "Zheng", 8001, 40f, 4f, 30f, "Evan1!", 0f, false));

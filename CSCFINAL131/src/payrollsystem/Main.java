@@ -32,18 +32,16 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         DataList data = new DataList();
         
-        System.out.print("Username: ");
-        int userID = scanner.nextInt();
-        System.out.print("Password: ");
-        String userPassword = scanner.nextLine();
-        
-        Employee current = data.auth(userID, userPassword); //no validation check yet curent == currently logged in
+        Employee current = null;
         
         do {
-        	 System.out.print("Username: ");
-             userID = scanner.nextInt();
+        	 System.out.print("UserID: ");
+             int userID = scanner.nextInt();
+             scanner.nextLine();
              System.out.print("Password: ");
-             userPassword = scanner.nextLine();
+             String userPassword = scanner.nextLine();
+             
+             current = data.auth(userID, userPassword); //no validation check yet curent == currently logged in
         } while (current == null);
         
         boolean isManager = current.managerStatus();
