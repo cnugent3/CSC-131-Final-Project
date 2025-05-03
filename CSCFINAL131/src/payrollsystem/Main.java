@@ -79,10 +79,16 @@ public class Main {
  				choice = scanner.nextInt();
  				switch (choice) {
  					case 1:
- 						//function
+ 						System.out.println("Your paycheck: $" + current.getCheck());
  						break;
  					case 2:
- 						//function
+ 						 System.out.print("Enter hours worked: ");
+ 					    float hours = scanner.nextFloat();
+ 					    System.out.print("Enter overtime hours: ");
+ 					    float overtime = scanner.nextFloat();
+ 					    current.setHoursWorked(hours);
+ 					    current.setOvertimeWorked(overtime);
+ 					    System.out.println("Hours updated.");
  						break;
  					case 3: 
  						System.out.println("Exiting...");
