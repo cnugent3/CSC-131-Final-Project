@@ -26,4 +26,8 @@ public class DataList {
     	System.out.println("Not a Valid Login");
         return null;
     }
+	
+	public List<Employee> getEmployees() {
+		return employees;
+	}
 }
