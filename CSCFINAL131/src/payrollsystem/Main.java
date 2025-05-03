@@ -5,7 +5,6 @@ public class Main {
  	public static void main(String[] args) {
  		
  		Employee emp1 = new Employee("Colin", "Nugent", 7999, 30f, 0f, 17f, "Colin1!", 0f, 0f);
- 
  		System.out.println(emp1.getId() + " " + emp1.getFirstName() + " " + emp1.getLastName()
  	        + " " + emp1.getHoursWorked() + " " + emp1.getOvertimeWorked()
  	        + " " + emp1.getHourlyWage() + " " + emp1.getPassword() + " " + emp1.getCheck());
@@ -36,9 +35,9 @@ public class Main {
 		+ " " + emp6.getHourlyWage() + " " + emp6.getPassword() + " " + emp6.getCheck());
 
 		Employee emp7 = new Employee("Maitri", "Amin", 9000, 38f, 2f, 28f, "Maitri1!", 1f, 2f);
-                System.out.println(emp7.getId() + " " + emp7.getFirstName() + " " + emp7.getLastName()
-                + " " + emp7.getHoursWorked() + " " + emp7.getOvertimeWorked()
-                + " " + emp7.getHourlyWage() + " " + emp7.getPassword() + " " + emp7.getCheck());
+        System.out.println(emp7.getId() + " " + emp7.getFirstName() + " " + emp7.getLastName()
+        + " " + emp7.getHoursWorked() + " " + emp7.getOvertimeWorked()
+        + " " + emp7.getHourlyWage() + " " + emp7.getPassword() + " " + emp7.getCheck());
 
  		
  	}

@@ -9,8 +9,8 @@ public class Employee {
     private float hourlyWage;
     private String password;
     private float check;
-    private float tax;
-    private float n;//added so change would be recognized in this file
+    
+    public static float taxRate = .0725f;
 
     public Employee(String firstName, String lastName, int id, float hoursWorked, float overtimeWorked, float hourlyWage,String password, float check, float tax) {
         this.firstName = firstName;
@@ -21,7 +21,6 @@ public class Employee {
         this.hourlyWage = hourlyWage;
         this.password=password;
         this.check= check;    
-        this.tax= tax;
         }
 
     public String getFirstName() {
@@ -84,15 +83,12 @@ public class Employee {
     public float getCheck(){ 
     	return updateCheck();
     }
-    public float getTax() {
-    	return tax;
-    }
-    
     
     public float calculatePay(float hours, float overHours, float wage) { //might move
     	check = (hours*wage) + ((wage*1.5f)*overHours);
- 
     	
+    	check = check - (check*taxRate);
+ 
         return check; 
         }    
     
