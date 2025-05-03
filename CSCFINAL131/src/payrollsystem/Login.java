@@ -1,14 +1,9 @@
 package payrollsystem;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
 
 public class Login {
-//new thing
-	package payrollsystem;
-
-	import java.util.HashMap;
-	import java.util.Map;
-	import java.util.List;
-
-	public class Login {
 	    private Map<String, User> userCredentials;
 
 	    private static class User {
@@ -50,4 +45,3 @@ public class Login {
 	        userCredentials.put(username, new User(password, true));
 	    }
 	} 
-}

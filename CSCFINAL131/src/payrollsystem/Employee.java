@@ -84,7 +84,7 @@ public class Employee {
     	return updateCheck();
     }
     
-    public float calculatePay(float hours, float overHours, float wage) { //might move
+    public float calculatePay(float hours, float overHours, float wage) {
     	check = (hours*wage) + ((wage*1.5f)*overHours);
     	
     	check = check - (check*taxRate);
