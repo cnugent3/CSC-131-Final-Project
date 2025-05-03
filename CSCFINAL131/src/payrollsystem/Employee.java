@@ -9,10 +9,11 @@ public class Employee {
     private float hourlyWage;
     private String password;
     private float check;
+    private boolean isManager;
     
     public static float taxRate = .0725f;
 
-    public Employee(String firstName, String lastName, int id, float hoursWorked, float overtimeWorked, float hourlyWage,String password, float check, float tax) {
+    public Employee(String firstName, String lastName, int id, float hoursWorked, float overtimeWorked, float hourlyWage,String password, float check, boolean isManager) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.id = id;
@@ -21,7 +22,12 @@ public class Employee {
         this.hourlyWage = hourlyWage;
         this.password=password;
         this.check= check;    
-        }
+        this.isManager = isManager;
+    }
+    
+    public boolean auth(int userID, String userPassword) {
+    	return this.id == userID && password.equals(userPassword);
+    }
 
     public String getFirstName() {
         return firstName;
@@ -82,6 +88,10 @@ public class Employee {
     }
     public float getCheck(){ 
     	return updateCheck();
+    }
+    
+    public boolean managerStatus() {
+    	return isManager;
     }
     
     public float calculatePay(float hours, float overHours, float wage) {
