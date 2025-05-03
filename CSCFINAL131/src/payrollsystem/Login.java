@@ -1,9 +1,22 @@
-package payrollsystem;
+//maybe redundant 
+
+
+
+/*package payrollsystem;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
 
 public class Login {
+	 private boolean isManager;
+	
+	 public 
+	
+	public boolean managerStatus() {
+	    	return isManager;
+	    }
+}
+
 	    private Map<String, User> userCredentials;
 
 	    private static class User {
@@ -35,7 +48,7 @@ public class Login {
 	    public boolean isManager(String username) {
 	        User user = userCredentials.get(username);
 	        return user != null && user.isManager;
-	    }
+	    } 
 
 	    public void addEmployee(String username, String password) {
 	        userCredentials.put(username, new User(password, false));
@@ -45,3 +58,5 @@ public class Login {
 	        userCredentials.put(username, new User(password, true));
 	    }
 	} 
+	 
+	 */
