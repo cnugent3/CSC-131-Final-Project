@@ -106,9 +106,9 @@ public class Main {
  	static void menuManager() { //edit to fit need
  		System.out.println("  Enter Choice: ");
  		System.out.println("      Menu      ");
- 		System.out.println("1. Calculate Pay ");
- 		System.out.println("2. Enter Hours ");
- 		System.out.println("3. xxxxxxxxxx ");
+ 		System.out.println("1. View All Employees");
+ 		System.out.println("2. Approve Payroll For An Employee");
+ 		System.out.println("3. Edit Employee Hours ");
  		System.out.println("4. Terminate Run");
 
  	}
