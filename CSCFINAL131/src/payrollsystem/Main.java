@@ -5,6 +5,7 @@ public class Main {
  	public static void main(String[] args) {
  		
  		Employee emp1 = new Employee("Colin", "Nugent", 7999, 30f, 0f, 17f, "Colin1!", 0f, 0f);
+ 
  		System.out.println(emp1.getId() + " " + emp1.getFirstName() + " " + emp1.getLastName()
  	        + " " + emp1.getHoursWorked() + " " + emp1.getOvertimeWorked()
  	        + " " + emp1.getHourlyWage() + " " + emp1.getPassword() + " " + emp1.getCheck());
@@ -35,10 +36,44 @@ public class Main {
 		+ " " + emp6.getHourlyWage() + " " + emp6.getPassword() + " " + emp6.getCheck());
 
 		Employee emp7 = new Employee("Maitri", "Amin", 9000, 38f, 2f, 28f, "Maitri1!", 1f, 2f);
-        System.out.println(emp7.getId() + " " + emp7.getFirstName() + " " + emp7.getLastName()
-        + " " + emp7.getHoursWorked() + " " + emp7.getOvertimeWorked()
-        + " " + emp7.getHourlyWage() + " " + emp7.getPassword() + " " + emp7.getCheck());
+                System.out.println(emp7.getId() + " " + emp7.getFirstName() + " " + emp7.getLastName()
+                + " " + emp7.getHoursWorked() + " " + emp7.getOvertimeWorked()
+                + " " + emp7.getHourlyWage() + " " + emp7.getPassword() + " " + emp7.getCheck());
+        
+                //adding code for input
+                // Add employees to a list
+                   List<Employee> employees = Arrays.asList(emp1, emp2, emp3);
+                   
+                   // Load into login system
+                   loginSystem.loadEmployees(employees);
 
- 		
+                   // Ask for login
+                   System.out.println("Welcome to the Payroll System");
+                   System.out.print("Enter your employee ID: ");
+                   String inputId = scanner.nextLine();
+
+                   System.out.print("Enter your password: ");
+                   String inputPassword = scanner.nextLine();
+                   
+                   if (loginSystem.authenticate(inputId, inputPassword)) {
+                       System.out.println("Login successful!");
+
+                       // Find the matching employee
+                       for (Employee e : employees) {
+                           if (String.valueOf(e.getId()).equals(inputId)) {
+                               System.out.println("Employee Info:");
+                               System.out.println("Name: " + e.getFirstName() + " " + e.getLastName());
+                               System.out.println("Hours Worked: " + e.getHoursWorked());
+                               System.out.println("Overtime: " + e.getOvertimeWorked());
+                               System.out.println("Hourly Wage: $" + e.getHourlyWage());
+                               System.out.println("Gross Pay: $" + e.getCheck());
+                           }
+                       }
+                   } else {
+                       System.out.println("Invalid ID or password.");
+                   }
+
+                   scanner.close();
  	}
-}
+}        	
+
