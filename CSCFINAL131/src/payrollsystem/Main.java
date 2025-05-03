@@ -44,6 +44,8 @@ public class Main {
              current = data.auth(userID, userPassword); //no validation check yet curent == currently logged in
         } while (current == null);
         
+        Manager manager = new Manager(data.getEmployees());
+        
         boolean isManager = current.managerStatus();
         int choice;
  
@@ -52,15 +54,17 @@ public class Main {
  				menuManager();
  				choice = scanner.nextInt();
  				switch (choice) {
- 				case 1:
- 					//function
- 					break;
- 				case 2:
- 					//function
- 					break;
- 				case 3: 
- 					//function or quit
- 					break;
+ 					case 1:
+ 						manager.viewAllEmployees();		// Not yet implemented
+ 						break;
+ 					case 2:
+ 						manager.approvePayroll();	// Add spaces/new lines
+ 						break;
+ 					case 3: 
+ 						manager.editEmployeeHours();	// Make it so that menu goes back
+ 						break;
+ 					default:
+ 						System.out.println("Invalid choice. Please try again.");
  				}
  			} while (choice != 3); // edit to fit need
  		}
@@ -70,15 +74,17 @@ public class Main {
  				menuReg();
  				choice = scanner.nextInt();
  				switch (choice) {
- 				case 1:
- 					//function
- 					break;
- 				case 2:
- 					//function
- 					break;
- 				case 3: 
- 					//function or quit
- 					break;
+ 					case 1:
+ 						//function
+ 						break;
+ 					case 2:
+ 						//function
+ 						break;
+ 					case 3: 
+ 						//function or quit
+ 						break;
+ 					default:
+ 						System.out.println("Invalid choice. Please try again.");
  				}
  			} while (choice != 3); // edit to fit need
  		}
