@@ -1,5 +1,6 @@
 package payrollsystem;
 import java.util.Scanner;
+import org.apache.pdfbox.pdmodel.PDDocument;
 
 public class Main {
  	public static void main(String[] args) {
@@ -86,6 +87,7 @@ public class Main {
  				switch (choice) {
  					case 1:
  						System.out.println("Your paycheck: $" + current.getCheck());
+ 						PaycheckPDF.generate(current);
  						break;
  					case 2:
  						 System.out.print("Enter hours worked: ");
