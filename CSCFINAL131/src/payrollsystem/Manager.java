@@ -66,7 +66,7 @@ public class Manager {
     	System.out.print("Enter new hours worked (0-80 hours): ");
     	float newHours = scanner.nextFloat();
     	if (newHours < 0 || newHours > 80) {
-    		System.out.println("Invalid hours. Entry must be between 0 and 40 hours.");
+    		System.out.println("Invalid hours.");
     		return;
     	}
     	
