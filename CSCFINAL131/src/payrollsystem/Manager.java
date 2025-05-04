@@ -12,11 +12,31 @@ public class Manager {
 	}
 
     public void viewAllEmployees() {
-        // method implementation goes here
+    	// Print the header
+        System.out.printf(
+        	"%-12s %-12s %-6s %-12s %-14s %-12s %-10s%n",
+        	"First Name", "Last Name", "ID", "Hours Worked",
+        	"Overtime Worked", "Hourly Wage", "Is Manager"
+        );
+        System.out.println("---------------------------------------------------------------------------");
+        
+        // Loop through and print each employee's data
+        for (Employee e : employees) {
+        	System.out.printf(
+        		"%-12s %-12s %-6d %-12.2f %-14.2f $%-11.2f %-12s%n",
+        		e.getFirstName(),
+        		e.getLastName(),
+        		e.getId(),
+        		e.getHoursWorked(),
+        		e.getOvertimeWorked(),
+        		e.getHourlyWage(),
+        		e.managerStatus() ? "Yes" : "No"
+        	);
+        }
+        System.out.println();
     }
 
-    public void approvePayroll() {
-    	Scanner scanner = new Scanner(System.in);
+    public void approvePayroll(Scanner scanner) {
     	System.out.print("Enter employee ID: ");
     	int id = scanner.nextInt();
     	
@@ -40,7 +60,7 @@ public class Manager {
     	System.out.printf("Pay: $%.2f%n", pay);
     	
     	// Prompt for approval
-    	System.out.print("Approve payroll for this employee? (Y = Yes / N = No)");
+    	System.out.print("Approve payroll for this employee? (Y = Yes / N = No) ");
     	String choice = scanner.next();
     	boolean approved = false;
     	
@@ -59,8 +79,7 @@ public class Manager {
     	
     }
 
-    public void editEmployeeHours() {
-    	Scanner scanner = new Scanner(System.in);
+    public void editEmployeeHours(Scanner scanner) {
     	System.out.print("Enter employee ID: ");
     	int id = scanner.nextInt();
     	
