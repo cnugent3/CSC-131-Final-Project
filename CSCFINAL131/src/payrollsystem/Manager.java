@@ -12,8 +12,8 @@ public class Manager {
 	}
 
     public void viewAllEmployees() {
-    	String headerFormat = "%-12s %-12s %-6s %-13s %-16s %-12s %-10s%n";
-    	String rowFormat = "%-12s %-12s %-6d %-13.2f %-16.2f $%-11.2f %-10s%n";
+    	String headerFormat = "%-12s %-12s %-6s %-14s %-17s %-13s %-10s%n";
+    	String rowFormat = "%-12s %-12s %-6d %-14.2f %-17.2f $%-13.2f %-10s%n";
     	
     	// Print the header
         System.out.printf(
@@ -21,7 +21,7 @@ public class Manager {
         	"First Name", "Last Name", "ID", "Hours Worked",
         	"Overtime Worked", "Hourly Wage", "Is Manager"
         );
-        System.out.println("-----------------------------------------------------------------------------------");
+        System.out.println("------------------------------------------------------------------------------------------");
         
         // Loop through and print each employee's data
         for (Employee e : employees) {
