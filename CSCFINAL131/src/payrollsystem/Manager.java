@@ -12,8 +12,8 @@ public class Manager {
 	}
 
     public void viewAllEmployees() {
-    	String headerFormat = "%-12s %-12s %-6s %-12s %-15s %-12s %-10s%n";
-    	String rowFormat = "%-12s %-12s %-6d %-12.2f %-15.2f $%-11.2f %-10s%n";
+    	String headerFormat = "%-12s %-12s %-6s %-13s %-16s %-12s %-10s%n";
+    	String rowFormat = "%-12s %-12s %-6d %-13.2f %-16.2f $%-11.2f %-10s%n";
     	
     	// Print the header
         System.out.printf(
@@ -21,7 +21,7 @@ public class Manager {
         	"First Name", "Last Name", "ID", "Hours Worked",
         	"Overtime Worked", "Hourly Wage", "Is Manager"
         );
-        System.out.println("---------------------------------------------------------------------------");
+        System.out.println("-----------------------------------------------------------------------------------");
         
         // Loop through and print each employee's data
         for (Employee e : employees) {
@@ -37,53 +37,6 @@ public class Manager {
         	);
         }
         System.out.println();
-    }
-
-    public void approvePayroll(Scanner scanner) {
-    	System.out.println();
-    	System.out.print("Enter employee ID: ");
-    	int id = scanner.nextInt();
-    	
-    	// Find the employee by ID
-    	Employee selectedEmployee = null;
-    	for (Employee e : employees) {
-    		if (e.getId() == id) {
-    			selectedEmployee = e;
-    			break;
-    		}
-    	}
-    	
-    	if (selectedEmployee == null) {
-    		System.out.println("Invalid employee ID.");
-    		return;
-    	}
-    	
-    	// Get pay amount and display it
-    	float pay = selectedEmployee.getCheck();
-    	System.out.println("Employee: " + selectedEmployee.getFirstName() + " " + selectedEmployee.getLastName());
-    	System.out.printf("Pay: $%.2f%n", pay);
-    	
-    	// Prompt for approval
-    	System.out.print("Approve payroll for this employee? (Y = Yes / N = No) ");
-    	String choice = scanner.next();
-    	boolean approved = false;
-    	
-    	// Logic for approvinig or denying payroll
-    	if (choice.equalsIgnoreCase("Y")) {
-    		approved = true;
-    		System.out.println("Payroll has been approved.");
-    		System.out.println();
-    	}
-    	else if (choice.equalsIgnoreCase("N")) {
-    		approved = false;
-    		System.out.println("Payroll has been denied.");
-    		System.out.println();
-    	}
-    	else {
-    		System.out.println("Invalid choice. Payroll has been denied by default.");
-    		System.out.println();
-    	}
-    	
     }
 
     public void editEmployeeHours(Scanner scanner) {
