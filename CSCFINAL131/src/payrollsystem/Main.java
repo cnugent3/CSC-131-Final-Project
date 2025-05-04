@@ -20,7 +20,7 @@ public class Main {
              String userPassword = scanner.nextLine();
              
              current = data.auth(userID, userPassword);
-             //no validation check yet curent == currently logged in
+             //no validation check yet current == currently logged in
              if (current == null) {
                  System.out.println("Login failed. Do you want to create a new employee with this ID? (yes/no)");
                  String response = scanner.nextLine().trim().toLowerCase();
@@ -146,44 +146,3 @@ public class Main {
  	}
 }	
 
-//may remove bottom
-
-		/*
-                //adding code for input
-                // Add employees to a list
-                   List<Employee> employees = Arrays.asList(emp1, emp2, emp3);
-                   
-                   // Load into login system
-                   loginSystem.loadEmployees(employees);
-
-                   // Ask for login
-                   System.out.println("Welcome to the Payroll System");
-                   System.out.print("Enter your employee ID: ");
-                   String inputId = scanner.nextLine();
-
-                   System.out.print("Enter your password: ");
-                   String inputPassword = scanner.nextLine();
-                   
-                   if (loginSystem.authenticate(inputId, inputPassword)) {
-                       System.out.println("Login successful!");
-
-                       // Find the matching employee
-                       for (Employee e : employees) {
-                           if (String.valueOf(e.getId()).equals(inputId)) {
-                               System.out.println("Employee Info:");
-                               System.out.println("Name: " + e.getFirstName() + " " + e.getLastName());
-                               System.out.println("Hours Worked: " + e.getHoursWorked());
-                               System.out.println("Overtime: " + e.getOvertimeWorked());
-                               System.out.println("Hourly Wage: $" + e.getHourlyWage());
-                               System.out.println("Gross Pay: $" + e.getCheck());
-                           }
-                       }
-                   } else {
-                       System.out.println("Invalid ID or password.");
-                   }
-
-                   scanner.close(); */
-		 	
-        
-        
-        //need to implement login function here then move onto menu

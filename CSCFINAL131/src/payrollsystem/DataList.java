@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataList {
-	private List<Employee> employees;  //NEED TO MAKE DYNAMIC
+	private List<Employee> employees;  
 	
 	public DataList() {
 		employees = new ArrayList<>(); //need to change check value to something realistic
