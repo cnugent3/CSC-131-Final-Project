@@ -8,6 +8,7 @@ public class Main {
  	public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         DataList data = new DataList();
+        int n;
         Employee current;
         while(true) {
         
