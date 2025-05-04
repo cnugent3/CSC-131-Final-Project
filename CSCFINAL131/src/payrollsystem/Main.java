@@ -66,22 +66,19 @@ public class Main {
  				choice = scanner.nextInt();
  				switch (choice) {
  					case 1:
- 						manager.viewAllEmployees();		// Not yet implemented
+ 						manager.viewAllEmployees();
  						List<Employee> allEmployees = data.getEmployees();
  						SpreadsheetPDF.generate(allEmployees);
  						break;
- 					case 2:
- 						manager.approvePayroll(scanner);	// Add spaces/new lines
+ 					case 2: 
+ 						manager.editEmployeeHours(scanner);
  						break;
- 					case 3: 
- 						manager.editEmployeeHours(scanner);	// Make it so that menu goes back
- 						break;
- 					case 4:
+ 					case 3:
  						System.out.println("Your paycheck: $" + current.getCheck());
  						PaycheckPDF.generate(current);
  						System.out.println();
  						break;
- 					case 5:
+ 					case 4:
  						System.out.print("Enter hours worked: ");
  					    float hours = scanner.nextFloat();
  					    System.out.print("Enter overtime hours: ");
@@ -91,11 +88,11 @@ public class Main {
  					    System.out.println("Hours updated.");
  					    System.out.println();
  						break;
- 					case 6:
+ 					case 5:
  						current = null; // log out
                         System.out.println("Logging out...\n");
                         break;
- 					case 7:
+ 					case 6:
  						System.out.println("Exiting...");
  						scanner.close();
  						System.exit(0);
@@ -103,7 +100,7 @@ public class Main {
  					default:
  						System.out.println("Invalid choice. Please try again.");
  				}
- 			} while (current != null && choice != 7); // edit to fit need
+ 			} while (current != null && choice != 6); // edit to fit need
  		}
  		
  		else {
@@ -147,12 +144,11 @@ public class Main {
  		System.out.println("  Enter Choice: ");
  		System.out.println("      Menu      ");
  		System.out.println("1. View All Employees");
- 		System.out.println("2. Approve Payroll For An Employee");
- 		System.out.println("3. Edit Employee Hours ");
- 		System.out.println("4. Calculate Pay ");
- 		System.out.println("5. Enter Hours ");
- 		System.out.println("6. Log out");
- 		System.out.println("7. Terminate Run");
+ 		System.out.println("2. Edit Employee Hours ");
+ 		System.out.println("3. Calculate Pay ");
+ 		System.out.println("4. Enter Hours ");
+ 		System.out.println("5. Log out");
+ 		System.out.println("6. Terminate Run");
 
  	}
  	
