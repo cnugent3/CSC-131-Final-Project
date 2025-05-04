@@ -64,15 +64,17 @@ public class EmployeeDirectory {
          System.out.print("Enter ID: ");
         int id = scanner.nextInt();
         System.out.print("Enter hourly rate: ");
-        double rate = scanner.nextDouble();
+        float rate = scanner.nextFloat();
           System.out.print("Enter hours worked: ");
-        double hours = scanner.nextDouble();
+        float hours = scanner.nextFloat();
         System.out.print("Enter overtime hours: ");
-         double overtime = scanner.nextDouble();
+        float overtime = scanner.nextFloat();
         System.out.print("Is Manager (true/false): ");
         boolean isManager = scanner.nextBoolean();
+        System.out.println("Please enter a password");
+        String password = scanner.nextLine();
 
-        Employee emp = new Employee(firstName, lastName, id, rate, hours, overtime, isManager);
+        Employee emp = new Employee(firstName, lastName, id,hours, overtime,rate,password, 0,  isManager);
        
        employees.put(id, emp);
         System.out.println("Employee has been added!");
@@ -86,9 +88,9 @@ public class EmployeeDirectory {
         if (employees.containsKey(id)) {
             Employee emp = employees.get(id);
             System.out.print("Enter new hourly rate: ");
-            emp.setHourlyRate(scanner.nextDouble());
+            emp.setHourlyWage(scanner.nextFloat());
              System.out.print("Enter new hours worked: ");
-            emp.setHoursWorked(scanner.nextDouble());
+            emp.setHoursWorked(scanner.nextFloat());
             System.out.println("Employee info updated!");
         } else {
             System.out.println("Employee not found.");
