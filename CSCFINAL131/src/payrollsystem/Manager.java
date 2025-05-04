@@ -12,9 +12,12 @@ public class Manager {
 	}
 
     public void viewAllEmployees() {
+    	String headerFormat = "%-12s %-12s %-6s %-12s %-15s %-12s %-10s%n";
+    	String rowFormat = "%-12s %-12s %-6d %-12.2f %-15.2f $%-11.2f %-10s%n";
+    	
     	// Print the header
         System.out.printf(
-        	"%-12s %-12s %-6s %-12s %-14s %-12s %-10s%n",
+        	headerFormat,
         	"First Name", "Last Name", "ID", "Hours Worked",
         	"Overtime Worked", "Hourly Wage", "Is Manager"
         );
@@ -23,7 +26,7 @@ public class Manager {
         // Loop through and print each employee's data
         for (Employee e : employees) {
         	System.out.printf(
-        		"%-12s %-12s %-6d %-12.2f %-14.2f $%-11.2f %-12s%n",
+        		rowFormat,
         		e.getFirstName(),
         		e.getLastName(),
         		e.getId(),

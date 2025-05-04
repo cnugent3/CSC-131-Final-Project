@@ -1,14 +1,12 @@
 package payrollsystem;
 import java.util.Scanner;
 import java.util.List;
-import org.apache.pdfbox.pdmodel.PDDocument;
 
 
 public class Main {
  	public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         DataList data = new DataList();
-        int n;
         Employee current;
         while(true) {
         
@@ -81,6 +79,7 @@ public class Main {
  					case 4:
  						System.out.println("Your paycheck: $" + current.getCheck());
  						PaycheckPDF.generate(current);
+ 						System.out.println();
  						break;
  					case 5:
  						System.out.print("Enter hours worked: ");
@@ -166,4 +165,4 @@ public class Main {
  		System.out.println("4. Terminate Run ");
 
  	}
-}
+}	
