@@ -85,6 +85,7 @@ public class Main {
  					    current.setHoursWorked(hours);
  					    current.setOvertimeWorked(overtime);
  					    System.out.println("Hours updated.");
+ 					    System.out.println();
  						break;
  					case 6:
  						current = null; // log out
@@ -118,6 +119,7 @@ public class Main {
  					    current.setHoursWorked(hours);
  					    current.setOvertimeWorked(overtime);
  					    System.out.println("Hours updated.");
+ 					    System.out.println();
  						break;
  					case 3:
  						current = null; // log out
