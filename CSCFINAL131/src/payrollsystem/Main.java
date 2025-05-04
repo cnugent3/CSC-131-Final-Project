@@ -68,16 +68,29 @@ public class Main {
  						manager.viewAllEmployees();		// Not yet implemented
  						break;
  					case 2:
- 						manager.approvePayroll();	// Add spaces/new lines
+ 						manager.approvePayroll(scanner);	// Add spaces/new lines
  						break;
  					case 3: 
- 						manager.editEmployeeHours();	// Make it so that menu goes back
+ 						manager.editEmployeeHours(scanner);	// Make it so that menu goes back
  						break;
  					case 4:
+ 						System.out.println("Your paycheck: $" + current.getCheck());
+ 						PaycheckPDF.generate(current);
+ 						break;
+ 					case 5:
+ 						System.out.print("Enter hours worked: ");
+ 					    float hours = scanner.nextFloat();
+ 					    System.out.print("Enter overtime hours: ");
+ 					    float overtime = scanner.nextFloat();
+ 					    current.setHoursWorked(hours);
+ 					    current.setOvertimeWorked(overtime);
+ 					    System.out.println("Hours updated.");
+ 						break;
+ 					case 6:
  						current = null; // log out
                         System.out.println("Logging out...\n");
                         break;
- 					case 5:
+ 					case 7:
  						System.out.println("Exiting...");
  						scanner.close();
  						System.exit(0);
@@ -85,7 +98,7 @@ public class Main {
  					default:
  						System.out.println("Invalid choice. Please try again.");
  				}
- 			} while (current!=null &&choice != 5); // edit to fit need
+ 			} while (current != null && choice != 7); // edit to fit need
  		}
  		
  		else {
@@ -98,7 +111,7 @@ public class Main {
  						PaycheckPDF.generate(current);
  						break;
  					case 2:
- 						 System.out.print("Enter hours worked: ");
+ 						System.out.print("Enter hours worked: ");
  					    float hours = scanner.nextFloat();
  					    System.out.print("Enter overtime hours: ");
  					    float overtime = scanner.nextFloat();
@@ -118,7 +131,7 @@ public class Main {
  					default:
  						System.out.println("Invalid choice. Please try again.");
  				}
- 			} while (current!= null && choice != 4); // edit to fit need
+ 			} while (current != null && choice != 4); // edit to fit need
  		}
  		
  	}
@@ -130,8 +143,10 @@ public class Main {
  		System.out.println("1. View All Employees");
  		System.out.println("2. Approve Payroll For An Employee");
  		System.out.println("3. Edit Employee Hours ");
- 		System.out.println("4. Log out");
- 		System.out.println("5. Terminate Run");
+ 		System.out.println("4. Calculate Pay ");
+ 		System.out.println("5. Enter Hours ");
+ 		System.out.println("6. Log out");
+ 		System.out.println("7. Terminate Run");
 
  	}
  	
