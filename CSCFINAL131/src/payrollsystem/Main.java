@@ -77,6 +77,7 @@ public class Main {
  					case 4:
  						System.out.println("Your paycheck: $" + current.getCheck());
  						PaycheckPDF.generate(current);
+ 						System.out.println();
  						break;
  					case 5:
  						System.out.print("Enter hours worked: ");
