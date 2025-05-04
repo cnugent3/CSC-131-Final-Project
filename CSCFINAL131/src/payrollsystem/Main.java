@@ -1,5 +1,6 @@
 package payrollsystem;
 import java.util.Scanner;
+import java.util.List;
 import org.apache.pdfbox.pdmodel.PDDocument;
 
 
@@ -20,7 +21,7 @@ public class Main {
              String userPassword = scanner.nextLine();
              
              current = data.auth(userID, userPassword);
-             //no validation check yet curent == currently logged in
+             //no validation check yet current == currently logged in
              if (current == null) {
                  System.out.println("Login failed. Do you want to create a new employee with this ID? (yes/no)");
                  String response = scanner.nextLine().trim().toLowerCase();
@@ -66,18 +67,34 @@ public class Main {
  				switch (choice) {
  					case 1:
  						manager.viewAllEmployees();		// Not yet implemented
+ 						List<Employee> allEmployees = data.getEmployees();
+ 						SpreadsheetPDF.generate(allEmployees);
  						break;
  					case 2:
- 						manager.approvePayroll();	// Add spaces/new lines
+ 						manager.approvePayroll(scanner);	// Add spaces/new lines
  						break;
  					case 3: 
- 						manager.editEmployeeHours();	// Make it so that menu goes back
+ 						manager.editEmployeeHours(scanner);	// Make it so that menu goes back
  						break;
  					case 4:
+ 						System.out.println("Your paycheck: $" + current.getCheck());
+ 						PaycheckPDF.generate(current);
+ 						break;
+ 					case 5:
+ 						System.out.print("Enter hours worked: ");
+ 					    float hours = scanner.nextFloat();
+ 					    System.out.print("Enter overtime hours: ");
+ 					    float overtime = scanner.nextFloat();
+ 					    current.setHoursWorked(hours);
+ 					    current.setOvertimeWorked(overtime);
+ 					    System.out.println("Hours updated.");
+ 					    System.out.println();
+ 						break;
+ 					case 6:
  						current = null; // log out
                         System.out.println("Logging out...\n");
                         break;
- 					case 5:
+ 					case 7:
  						System.out.println("Exiting...");
  						scanner.close();
  						System.exit(0);
@@ -85,7 +102,7 @@ public class Main {
  					default:
  						System.out.println("Invalid choice. Please try again.");
  				}
- 			} while (current!=null &&choice != 5); // edit to fit need
+ 			} while (current != null && choice != 7); // edit to fit need
  		}
  		
  		else {
@@ -98,13 +115,14 @@ public class Main {
  						PaycheckPDF.generate(current);
  						break;
  					case 2:
- 						 System.out.print("Enter hours worked: ");
+ 						System.out.print("Enter hours worked: ");
  					    float hours = scanner.nextFloat();
  					    System.out.print("Enter overtime hours: ");
  					    float overtime = scanner.nextFloat();
  					    current.setHoursWorked(hours);
  					    current.setOvertimeWorked(overtime);
  					    System.out.println("Hours updated.");
+ 					    System.out.println();
  						break;
  					case 3:
  						current = null; // log out
@@ -118,7 +136,7 @@ public class Main {
  					default:
  						System.out.println("Invalid choice. Please try again.");
  				}
- 			} while (current!= null && choice != 4); // edit to fit need
+ 			} while (current != null && choice != 4); // edit to fit need
  		}
  		
  	}
@@ -130,8 +148,10 @@ public class Main {
  		System.out.println("1. View All Employees");
  		System.out.println("2. Approve Payroll For An Employee");
  		System.out.println("3. Edit Employee Hours ");
- 		System.out.println("4. Log out");
- 		System.out.println("5. Terminate Run");
+ 		System.out.println("4. Calculate Pay ");
+ 		System.out.println("5. Enter Hours ");
+ 		System.out.println("6. Log out");
+ 		System.out.println("7. Terminate Run");
 
  	}
  	
@@ -146,44 +166,3 @@ public class Main {
  	}
 }	
 
-//may remove bottom
-
-		/*
-                //adding code for input
-                // Add employees to a list
-                   List<Employee> employees = Arrays.asList(emp1, emp2, emp3);
-                   
-                   // Load into login system
-                   loginSystem.loadEmployees(employees);
-
-                   // Ask for login
-                   System.out.println("Welcome to the Payroll System");
-                   System.out.print("Enter your employee ID: ");
-                   String inputId = scanner.nextLine();
-
-                   System.out.print("Enter your password: ");
-                   String inputPassword = scanner.nextLine();
-                   
-                   if (loginSystem.authenticate(inputId, inputPassword)) {
-                       System.out.println("Login successful!");
-
-                       // Find the matching employee
-                       for (Employee e : employees) {
-                           if (String.valueOf(e.getId()).equals(inputId)) {
-                               System.out.println("Employee Info:");
-                               System.out.println("Name: " + e.getFirstName() + " " + e.getLastName());
-                               System.out.println("Hours Worked: " + e.getHoursWorked());
-                               System.out.println("Overtime: " + e.getOvertimeWorked());
-                               System.out.println("Hourly Wage: $" + e.getHourlyWage());
-                               System.out.println("Gross Pay: $" + e.getCheck());
-                           }
-                       }
-                   } else {
-                       System.out.println("Invalid ID or password.");
-                   }
-
-                   scanner.close(); */
-		 	
-        
-        
-        //need to implement login function here then move onto menu
