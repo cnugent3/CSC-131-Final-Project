@@ -18,6 +18,7 @@ public class Main {
              scanner.nextLine();
              System.out.print("Password: ");
              String userPassword = scanner.nextLine();
+             System.out.println();
              
              current = data.auth(userID, userPassword);
              //no validation check yet current == currently logged in
