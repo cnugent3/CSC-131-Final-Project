@@ -6,8 +6,10 @@ public class Main {
  	public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         DataList data = new DataList();
+        Employee current;
+        while(true) {
         
-        Employee current = null;
+        current = null;
         
         do {
         	 System.out.print("UserID: ");
@@ -71,13 +73,18 @@ public class Main {
  						manager.editEmployeeHours();	// Make it so that menu goes back
  						break;
  					case 4:
+ 						current = null; // log out
+                        System.out.println("Logging out...\n");
+                        break;
+ 					case 5:
  						System.out.println("Exiting...");
+ 						scanner.close();
  						System.exit(0);
  						break;
  					default:
  						System.out.println("Invalid choice. Please try again.");
  				}
- 			} while (choice != 3); // edit to fit need
+ 			} while (current!=null &&choice != 5); // edit to fit need
  		}
  		
  		else {
@@ -98,17 +105,22 @@ public class Main {
  					    current.setOvertimeWorked(overtime);
  					    System.out.println("Hours updated.");
  						break;
- 					case 3: 
+ 					case 3:
+ 						current = null; // log out
+                        System.out.println("Logging out...\n");
+                        break;
+ 					case 4: 
  						System.out.println("Exiting...");
+ 						scanner.close();
  						System.exit(0); 						
  						break;
  					default:
  						System.out.println("Invalid choice. Please try again.");
  				}
- 			} while (choice != 3); // edit to fit need
+ 			} while (current!= null && choice != 4); // edit to fit need
  		}
  		
- 		scanner.close();
+ 	}
  	}
  	
  	static void menuManager() { //edit to fit need
@@ -117,7 +129,8 @@ public class Main {
  		System.out.println("1. View All Employees");
  		System.out.println("2. Approve Payroll For An Employee");
  		System.out.println("3. Edit Employee Hours ");
- 		System.out.println("4. Terminate Run");
+ 		System.out.println("4. Log out");
+ 		System.out.println("5. Terminate Run");
 
  	}
  	
@@ -126,7 +139,8 @@ public class Main {
  		System.out.println("       Menu      ");
  		System.out.println("1. Calculate Pay ");
  		System.out.println("2. Enter Hours ");
- 		System.out.println("3. xxxxxxxxxx ");
+ 		System.out.println("3. Log out");
+ 		System.out.println("4. Terminate Run ");
 
  	}
 }	
