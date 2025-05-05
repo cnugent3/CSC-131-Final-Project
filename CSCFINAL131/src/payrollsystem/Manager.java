@@ -2,7 +2,6 @@ package payrollsystem;
 
 import java.util.List;
 import java.util.Scanner;
-
 public class Manager {
 	private List<Employee> employees;
 	

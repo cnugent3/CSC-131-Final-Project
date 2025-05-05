@@ -6,10 +6,10 @@ import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
-
 public class PaycheckPDF {
 
-    public static void generate(Employee employee) {
+    
+	public static void generate(Employee employee) {
         PDDocument document = new PDDocument();
         PDPage page = new PDPage(PDRectangle.LETTER);
         document.addPage(page);

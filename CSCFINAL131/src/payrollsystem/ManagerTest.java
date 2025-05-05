@@ -8,7 +8,6 @@ import java.io.PrintStream;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 public class ManagerTest {
 
     private List<Employee> employees;

@@ -2,7 +2,6 @@ package payrollsystem;
 import java.util.Scanner;
 import java.util.List;
 
-
 public class Main {
  	public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
