@@ -10,19 +10,19 @@ public class Employee {
     private String password;
     private float check;
     private float tax;
-    private float n;//added so change would be recognized in this file
+    private float n; // added so change would be recognized in this file
 
-    public Employee(String firstName, String lastName, int id, float hoursWorked, float overtimeWorked, float hourlyWage,String password, float check, float tax) {
+    public Employee(String firstName, String lastName, int id, float hoursWorked, float overtimeWorked, float hourlyWage, String password, float check, float tax) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.id = id;
         this.hoursWorked = hoursWorked;
         this.overtimeWorked = overtimeWorked;
         this.hourlyWage = hourlyWage;
-        this.password=password;
-        this.check= check;    
-        this.tax= tax;
-        }
+        this.password = password;
+        this.check = check;
+        this.tax = tax;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -71,31 +71,43 @@ public class Employee {
     public void setHourlyWage(float hourlyWage) {
         this.hourlyWage = hourlyWage;
     }
+
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
-        this.password=password;
+        this.password = password;
     }
+
     public float updateCheck() {
         return this.check = calculatePay(this.hoursWorked, this.overtimeWorked, this.hourlyWage);
     }
-    public float getCheck(){ 
-    	return updateCheck();
-    }
-    public float getTax() {
-    	return tax;
-    }
-    
-    
-    public float calculatePay(float hours, float overHours, float wage) { //might move
-    	check = (hours*wage) + ((wage*1.5f)*overHours);
- 
-    	
-        return check; 
-        }    
-    
 
+    public float getCheck() {
+        return updateCheck();
+    }
+
+    public float getTax() {
+        return tax;
+    }
+
+    public float calculatePay(float hours, float overHours, float wage) {
+        check = (hours * wage) + ((wage * 1.5f) * overHours);
+        return check;
+    }
+
+    public void printPayStub() {
+        System.out.println("----- PAY STUB -----");
+        System.out.println("Employee Name: " + firstName + " " + lastName);
+        System.out.println("Employee ID: " + id);
+        System.out.println("Hours Worked: " + hoursWorked);
+        System.out.println("Overtime Hours: " + overtimeWorked);
+        System.out.println("Hourly Wage: $" + hourlyWage);
+        System.out.println("Total Pay (Pre-Tax): $" + getCheck());
+        System.out.println("Tax Deducted: $" + tax);
+        System.out.println("---------------------");
+    }
 }
+
 

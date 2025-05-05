@@ -39,6 +39,9 @@ public class Main {
         + " " + emp7.getHoursWorked() + " " + emp7.getOvertimeWorked()
         + " " + emp7.getHourlyWage() + " " + emp7.getPassword() + " " + emp7.getCheck());
 
+		emp7.printPayStub(); 
+
+
  		
  	}
 }
