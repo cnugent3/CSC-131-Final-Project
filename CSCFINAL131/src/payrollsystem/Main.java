@@ -1,47 +1,165 @@
 package payrollsystem;
-
+import java.util.Scanner;
+import java.util.List;
 
 public class Main {
  	public static void main(String[] args) {
- 		
- 		Employee emp1 = new Employee("Colin", "Nugent", 7999, 30f, 0f, 17f, "Colin1!", 0f, 0f);
+ 		runApp();
+    }
+ 		public static void runApp() {
+        Scanner scanner = new Scanner(System.in);
+        DataList data = new DataList();
+        Employee current;
+        while(true) {
+        
+        current = null;
+        
+        do {
+        	 System.out.print("UserID: ");
+             int userID = scanner.nextInt();
+             scanner.nextLine();
+             System.out.print("Password: ");
+             String userPassword = scanner.nextLine();
+             System.out.println();
+             
+             current = data.auth(userID, userPassword);
+             //no validation check yet current == currently logged in
+             if (current == null) {
+                 System.out.println("Login failed. Do you want to create a new employee with this ID? (yes/no)");
+                 String response = scanner.nextLine().trim().toLowerCase();
+
+                 if (response.equals("yes")) {
+                     System.out.print("First Name: ");
+                     String firstName = scanner.nextLine();
+
+                     System.out.print("Last Name: ");
+                     String lastName = scanner.nextLine();
+
+                     System.out.print("Hourly Wage: ");
+                     float hourlyWage = scanner.nextFloat();
+
+                     System.out.print("Password: ");
+                     scanner.nextLine(); // consume leftover newline
+                     String newPassword = scanner.nextLine();
+
+                     System.out.print("Is this employee a manager? (yes/no): ");
+                     String isManagerStr = scanner.nextLine().trim().toLowerCase();
+                     boolean isManager = isManagerStr.equals("yes");
+
+                     Employee newEmp = new Employee(firstName, lastName, userID, 0f, 0f, hourlyWage, newPassword, 0f, isManager);
+                     data.getEmployees().add(newEmp);
+                     current = newEmp;
+
+                     System.out.println("New employee created and logged in.\n");
+                 } else {
+                     System.out.println("Please try again.\n");
+                 }
+             }
+        } while (current == null);
+        
+        Manager manager = new Manager(data.getEmployees());
+        
+        boolean isManager = current.managerStatus();
+        int choice;
  
- 		System.out.println(emp1.getId() + " " + emp1.getFirstName() + " " + emp1.getLastName()
- 	        + " " + emp1.getHoursWorked() + " " + emp1.getOvertimeWorked()
- 	        + " " + emp1.getHourlyWage() + " " + emp1.getPassword() + " " + emp1.getCheck());
- 		Employee emp2 = new Employee("Jimson", "Sou", 8000, 35f, 2f, 25f, "Jimson1!", 3f, 0f);
- 		System.out.println(emp2.getId() + " " + emp2.getFirstName() + " " + emp2.getLastName()
- 	        + " " + emp2.getHoursWorked() + " " + emp2.getOvertimeWorked()
- 	        + " " + emp2.getHourlyWage() + " " + emp2.getPassword() + " " + emp2.getCheck());
- 
- 		Employee emp3 = new Employee("Evan", "Zheng", 8001, 40f, 4f, 30f, "Evan1!", 0f, 0f);
- 		System.out.println(emp3.getId() + " " + emp3.getFirstName() + " " + emp3.getLastName()
- 	        + " " + emp3.getHoursWorked() + " " + emp3.getOvertimeWorked()
- 	        + " " + emp3.getHourlyWage() + " " + emp3.getPassword() + " " + emp3.getCheck());
+ 		if (isManager == true) {
+ 			do {
+ 				menuManager();
+ 				choice = scanner.nextInt();
+ 				switch (choice) {
+ 					case 1:
+ 						manager.viewAllEmployees();
+ 						List<Employee> allEmployees = data.getEmployees();
+ 						SpreadsheetPDF.generate(allEmployees);
+ 						break;
+ 					case 2: 
+ 						manager.editEmployeeHours(scanner);
+ 						break;
+ 					case 3:
+ 						System.out.println("Your paycheck: $" + current.getCheck());
+ 						PaycheckPDF.generate(current);
+ 						System.out.println();
+ 						break;
+ 					case 4:
+ 						System.out.print("Enter hours worked: ");
+ 					    float hours = scanner.nextFloat();
+ 					    System.out.print("Enter overtime hours: ");
+ 					    float overtime = scanner.nextFloat();
+ 					    current.setHoursWorked(hours);
+ 					    current.setOvertimeWorked(overtime);
+ 					    System.out.println("Hours updated.");
+ 					    System.out.println();
+ 						break;
+ 					case 5:
+ 						current = null; // log out
+                        System.out.println("Logging out...\n");
+                        break;
+ 					case 6:
+ 						System.out.println("Exiting...");
+ 						scanner.close();
+ 						return;
+ 					default:
+ 						System.out.println("Invalid choice. Please try again.");
+ 				}
+ 			} while (current != null && choice != 6); // edit to fit need
+ 		}
  		
-		Employee emp4 = new Employee("Jumana", "Abdullah", 7000, 42f, 1f, 23f, "Jumana3!", 4f, 7f);
-		System.out.println(emp4.getId() + " " + emp4.getFirstName() + " " + emp4.getLastName()
-		+ " " + emp4.getHoursWorked() + " " + emp4.getOvertimeWorked()
-		+ " " + emp4.getHourlyWage() + " " + emp4.getPassword() + " " + emp4.getCheck());
-
-		Employee emp5 = new Employee("Christian", "Ishikawa", 8002, 44f, 6f, 33f, "Christian1!", 0f, 3f);
-		System.out.println(emp5.getId() + " " + emp5.getFirstName() + " " + emp5.getLastName()
-		+ " " + emp5.getHoursWorked() + " " + emp5.getOvertimeWorked()
-		+ " " + emp5.getHourlyWage() + " " + emp5.getPassword() + " " + emp5.getCheck());
-
-		Employee emp6 = new Employee("Noor", "Eissa", 8004, 34f, 7f, 44f, "Noor1!", 0f, 0f);
-		System.out.println(emp6.getId() + " " + emp6.getFirstName() + " " + emp6.getLastName()
-		+ " " + emp6.getHoursWorked() + " " + emp6.getOvertimeWorked()
-		+ " " + emp6.getHourlyWage() + " " + emp6.getPassword() + " " + emp6.getCheck());
-
-		Employee emp7 = new Employee("Maitri", "Amin", 9000, 38f, 2f, 28f, "Maitri1!", 1f, 2f);
-        System.out.println(emp7.getId() + " " + emp7.getFirstName() + " " + emp7.getLastName()
-        + " " + emp7.getHoursWorked() + " " + emp7.getOvertimeWorked()
-        + " " + emp7.getHourlyWage() + " " + emp7.getPassword() + " " + emp7.getCheck());
-
-		emp7.printPayStub(); 
-
-
+ 		else {
+ 			do {
+ 				menuReg();
+ 				choice = scanner.nextInt();
+ 				switch (choice) {
+ 					case 1:
+ 						System.out.println("Your paycheck: $" + current.getCheck());
+ 						PaycheckPDF.generate(current);
+ 						break;
+ 					case 2:
+ 						System.out.print("Enter hours worked: ");
+ 					    float hours = scanner.nextFloat();
+ 					    System.out.print("Enter overtime hours: ");
+ 					    float overtime = scanner.nextFloat();
+ 					    current.setHoursWorked(hours);
+ 					    current.setOvertimeWorked(overtime);
+ 					    System.out.println("Hours updated.");
+ 					    System.out.println();
+ 						break;
+ 					case 3:
+ 						current = null; // log out
+                        System.out.println("Logging out...\n");
+                        break;
+ 					case 4: 
+ 						System.out.println("Exiting...");
+ 						scanner.close();
+ 						return;
+ 					default:
+ 						System.out.println("Invalid choice. Please try again.");
+ 				}
+ 			} while (current != null && choice != 4); // edit to fit need
+ 		}
  		
  	}
-}
+ 	}
+ 	
+ 	static void menuManager() { //edit to fit need
+ 		System.out.println("  Enter Choice: ");
+ 		System.out.println("      Menu      ");
+ 		System.out.println("1. View All Employees");
+ 		System.out.println("2. Edit Employee Hours ");
+ 		System.out.println("3. Calculate Pay ");
+ 		System.out.println("4. Enter Hours ");
+ 		System.out.println("5. Log out");
+ 		System.out.println("6. Terminate Run");
+
+ 	}
+ 	
+ 	static void menuReg() { //edit to fit need
+ 		System.out.println("  Enter Choice: ");
+ 		System.out.println("       Menu      ");
+ 		System.out.println("1. Calculate Pay ");
+ 		System.out.println("2. Enter Hours ");
+ 		System.out.println("3. Log out");
+ 		System.out.println("4. Terminate Run ");
+
+ 	}
+ 	 //small change
+}	
