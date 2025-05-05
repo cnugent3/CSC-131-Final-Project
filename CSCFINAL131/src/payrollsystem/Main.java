@@ -4,6 +4,9 @@ import java.util.List;
 
 public class Main {
  	public static void main(String[] args) {
+ 		runApp();
+    }
+ 		public static void runApp() {
         Scanner scanner = new Scanner(System.in);
         DataList data = new DataList();
         Employee current;
@@ -94,8 +97,7 @@ public class Main {
  					case 6:
  						System.out.println("Exiting...");
  						scanner.close();
- 						System.exit(0);
- 						break;
+ 						return;
  					default:
  						System.out.println("Invalid choice. Please try again.");
  				}
@@ -128,8 +130,7 @@ public class Main {
  					case 4: 
  						System.out.println("Exiting...");
  						scanner.close();
- 						System.exit(0); 						
- 						break;
+ 						return;
  					default:
  						System.out.println("Invalid choice. Please try again.");
  				}
@@ -160,4 +161,5 @@ public class Main {
  		System.out.println("4. Terminate Run ");
 
  	}
+ 	
 }	
