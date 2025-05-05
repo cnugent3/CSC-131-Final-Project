@@ -1,4 +1,4 @@
-package payrollsystem;
+/*package payrollsystem;
 import java.util.*;
 
 // Main class fr managing the employee directory
@@ -141,3 +141,5 @@ public class EmployeeDirectory {
           mgr.viewAllEmployees();
     }
 }
+
+*/
