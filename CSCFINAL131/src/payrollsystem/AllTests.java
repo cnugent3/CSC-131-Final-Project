@@ -6,7 +6,8 @@ import org.junit.platform.suite.api.Suite;
     EmployeeTest.class,
     ManagerTest.class,
     DataListTest.class,
-    PaycheckPDFTest.class
+    PaycheckPDFTest.class,
+    SpreadsheetPDFTest.class
 })
 public class AllTests {
     // No code needed here
