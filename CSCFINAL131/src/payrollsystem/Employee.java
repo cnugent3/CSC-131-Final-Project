@@ -103,8 +103,28 @@ public class Employee {
     	check = check - (check*taxRate);
  
         return check; 
-        }    
+        }   
+    
+    public void printPayStub() {  // display all info for paystubs 
+        float grossPay = (hoursWorked * hourlyWage) + (overtimeWorked * hourlyWage * 1.5f);
+        float taxDeducted = grossPay * taxRate;
+        float netPay = grossPay - taxDeducted;
+        
+        System.out.println("----- PAY STUB -----");
+        System.out.println("Employee Name: " + firstName + " " + lastName);
+        System.out.println("Employee ID: " + id);
+        System.out.println("Hours Worked: " + hoursWorked);
+        System.out.println("Overtime Hours: " + overtimeWorked);
+        System.out.println("Hourly Wage: $" + hourlyWage);
+        System.out.println("Gross Pay: $" + grossPay);
+        System.out.println("Tax Deducted (7.25%): $" + taxDeducted);
+        System.out.println("Net Pay: $" + netPay);
+        System.out.println("---------------------");
+        }
+     
+
+        
+    }
     
 
-}
 
