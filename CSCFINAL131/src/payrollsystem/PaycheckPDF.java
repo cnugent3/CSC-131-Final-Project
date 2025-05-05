@@ -6,14 +6,13 @@ import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
-
 public class PaycheckPDF {
 
-    public static void generate(Employee employee) {
+    
+	public static void generate(Employee employee) {
         PDDocument document = new PDDocument();
         PDPage page = new PDPage(PDRectangle.LETTER);
         document.addPage(page);
-       
 
         try {
             PDPageContentStream content = new PDPageContentStream(document, page);
@@ -45,7 +44,7 @@ public class PaycheckPDF {
             String fileName = downloadsPath + "\\paycheck_" + employee.getFirstName() + "_" + employee.getLastName() + ".pdf";
             document.save(fileName);
             System.out.println("Paycheck PDF created: " + fileName);
-            
+
         } catch (IOException e) {
             System.err.println("Error generating paycheck: " + e.getMessage());
         } finally {
